@@ -6,49 +6,27 @@ export const ROLE_LABELS: Record<UserRole, string> = {
   staff: 'スタッフ',
 }
 
+// サンプルアプリ用: 全ロールに全権限を付与（RBACロックを実質無効化）
+// 本番運用する場合は staff/manager の権限を絞ること
+const ALL_PERMISSIONS = {
+  canManageUsers: true,
+  canManageSettings: true,
+  canDeleteVouchers: true,
+  canExportData: true,
+  canViewAllBranches: true,
+  canManageMFA: true,
+  canCreateInvoices: true,
+  canCreateEstimates: true,
+  canManageJournal: true,
+  canManageCustomers: true,
+  canManageVehicleInspections: true,
+  canViewAccounting: true,
+} as const
+
 export const ROLE_PERMISSIONS = {
-  admin: {
-    canManageUsers: true,
-    canManageSettings: true,
-    canDeleteVouchers: true,
-    canExportData: true,
-    canViewAllBranches: true,
-    canManageMFA: true,
-    canCreateInvoices: true,
-    canCreateEstimates: true,
-    canManageJournal: true,
-    canManageCustomers: true,
-    canManageVehicleInspections: true,
-    canViewAccounting: true,
-  },
-  manager: {
-    canManageUsers: false,
-    canManageSettings: true,
-    canDeleteVouchers: true,
-    canExportData: true,
-    canViewAllBranches: false,
-    canManageMFA: true,
-    canCreateInvoices: true,
-    canCreateEstimates: true,
-    canManageJournal: true,
-    canManageCustomers: true,
-    canManageVehicleInspections: true,
-    canViewAccounting: true,
-  },
-  staff: {
-    canManageUsers: false,
-    canManageSettings: false,
-    canDeleteVouchers: false,
-    canExportData: false,
-    canViewAllBranches: false,
-    canManageMFA: true,
-    canCreateInvoices: true,
-    canCreateEstimates: true,
-    canManageJournal: false,
-    canManageCustomers: true,
-    canManageVehicleInspections: true,
-    canViewAccounting: false,
-  },
+  admin: ALL_PERMISSIONS,
+  manager: ALL_PERMISSIONS,
+  staff: ALL_PERMISSIONS,
 } as const
 
 export type Permission = keyof typeof ROLE_PERMISSIONS.admin
