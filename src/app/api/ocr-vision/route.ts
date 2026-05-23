@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
                 text: `この車検証（自動車検査証）の画像から以下の情報を読み取り、JSON形式で返してください。
 情報が読み取れない場合はそのフィールドをnullにしてください。
 返すJSONのフィールド:
-- vehicle_number: 登録番号（例: "岩手 300 あ 1234"）
+- vehicle_number: 登録番号（例: "品川 300 あ 1234"）
 - vehicle_model: 車名（例: "アルファード", "プリウス"）
 - vehicle_year: 初度登録年月（元号と年月を含めて返してください。例: "令和3年4月", "平成30年12月"）
 - vehicle_inspection_date: 有効期間の満了する日（YYYY-MM-DD形式で返してください、例: "2025-10-31"）

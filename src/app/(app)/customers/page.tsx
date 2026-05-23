@@ -284,7 +284,7 @@ async function ocrVehicleInspection(file: File): Promise<{
   const lines: string[] = text.split('\n').map((l: string) => l.trim()).filter(Boolean)
   const result: Record<string, string> = {}
 
-  // 車両番号: 例「品川 300 あ 12-34」「岩手 300 あ 1234」
+  // 車両番号: 例「品川 300 あ 12-34」「練馬 300 あ 1234」
   const plateMatch = text.match(/([一-龥ぁ-ん]{2,4})\s*(\d{2,3})\s*([あ-ん])\s*([\d・\-]+)/)
   if (plateMatch) {
     result.vehicle_number = `${plateMatch[1]} ${plateMatch[2]} ${plateMatch[3]} ${plateMatch[4]}`
@@ -532,7 +532,7 @@ function CustomerDialog({ title, initial, onClose, onSave, saving }: CustomerDia
 
                 <div className="space-y-1.5">
                   <Label htmlFor="v-number">車両番号</Label>
-                  <Input id="v-number" value={form.vehicle_number} onChange={set('vehicle_number')} placeholder="岩手 300 あ 1234" />
+                  <Input id="v-number" value={form.vehicle_number} onChange={set('vehicle_number')} placeholder="品川 300 あ 1234" />
                 </div>
 
                 <div className="space-y-1.5">

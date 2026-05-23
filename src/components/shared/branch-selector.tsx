@@ -17,8 +17,8 @@ import type { Branch } from '@/lib/types'
 export const APP_BRANCHES: Branch[] = [
   { id: 'all', name: 'トータル', code: 'ALL', created_at: '' },
   { id: '00000000-0000-0000-0000-000000000001', name: '本社', code: 'HQ', created_at: '' },
-  { id: '00000000-0000-0000-0000-000000000002', name: '滝沢', code: 'TKZ', created_at: '' },
-  { id: '00000000-0000-0000-0000-000000000003', name: '三ツ割', code: 'MTW', created_at: '' },
+  { id: '00000000-0000-0000-0000-000000000002', name: 'A支店', code: 'BR-A', created_at: '' },
+  { id: '00000000-0000-0000-0000-000000000003', name: 'B支店', code: 'BR-B', created_at: '' },
 ]
 
 export function BranchSelector() {

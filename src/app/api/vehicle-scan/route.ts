@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
 読み取れない項目はnullにしてください。
 
 返すJSONフィールド:
-- vehicle_number: 登録番号（例: "岩手 300 あ 1234"）
+- vehicle_number: 登録番号（例: "品川 300 あ 1234"）
 - vehicle_model: 車名（例: "アルファード"）
 - vehicle_year: 初度登録年月（例: "令和3年4月"、"平成30年12月"）
 - vehicle_inspection_date: 有効期間の満了する日（YYYY-MM-DD形式、例: "2025-10-31"）

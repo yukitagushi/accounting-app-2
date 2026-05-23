@@ -1,6 +1,5 @@
-import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer'
+import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer'
 import type { Estimate } from '@/lib/types'
-import { SEAL_IMAGE } from './seal-data'
 import { registerJapaneseFonts } from './register-fonts'
 
 registerJapaneseFonts()
@@ -62,12 +61,12 @@ interface EstimatePDFProps {
 
 export function EstimatePDF({
   estimate,
-  companyName = '有限会社 竹花自工',
-  companyAddress = '〒028-5642 岩手県下閉伊郡岩泉町穴沢大宮内43-5',
-  companyPhone = '0194-25-4793',
-  companyFax = '0194-32-3015',
-  companyRepresentative = '竹花 将昭',
-  companyRegistrationNumber = 'T8400002011138',
+  companyName = 'サンプル株式会社',
+  companyAddress = '〒100-0001 東京都千代田区千代田1-1-1',
+  companyPhone = '03-1234-5678',
+  companyFax = '03-1234-5679',
+  companyRepresentative = '山田 太郎',
+  companyRegistrationNumber = 'T0000000000000',
 }: EstimatePDFProps) {
   const lines = estimate.line_items ?? []
   const partsSubtotal = lines.reduce((sum, l) => sum + (l.parts_amount ?? 0), 0)
@@ -117,7 +116,7 @@ export function EstimatePDF({
               <Text style={s.companyDetail}>{'TEL ' + companyPhone + '  FAX ' + companyFax}</Text>
               <Text style={s.companyDetail}>{'\u767b\u9332\u756a\u53f7 ' + companyRegistrationNumber}</Text>
             </View>
-            <Image style={s.sealImage} src={SEAL_IMAGE} />
+            {/* 角印は非表示（サンプル用途） */}
           </View>
         </View>
 
@@ -182,7 +181,7 @@ export function EstimatePDF({
           <View style={s.bottomLeft}>
             <Text style={{ marginBottom: 3 }}>{'見積有効期限: ' + estimate.valid_until}</Text>
             <Text style={{ marginTop: 8, fontSize: 7, fontWeight: 700 }}>{'[振込口座]'}</Text>
-            <Text style={{ fontSize: 7 }}>{'岩手銀行・岩泉支店（普）0192367'}</Text>
+            <Text style={{ fontSize: 7 }}>{'サンプル銀行・本店（普）1234567'}</Text>
           </View>
           <View style={s.bottomRight}>
             <View style={s.totalsRow}>

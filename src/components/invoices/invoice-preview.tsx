@@ -61,12 +61,12 @@ export function InvoicePreview({
   taxMode,
   discount = 0,
   notes,
-  companyName = '有限会社 竹花自工',
-  companyAddress = '〒028-5642 岩手県下閉伊郡岩泉町穴沢大宮内43-5',
-  companyPhone = '0194-25-4793',
-  companyFax = '0194-32-3015',
-  companyRepresentative = '竹花 将昭',
-  companyRegistrationNumber = 'T8400002011138',
+  companyName = 'サンプル株式会社',
+  companyAddress = '〒100-0001 東京都千代田区千代田1-1-1',
+  companyPhone = '03-1234-5678',
+  companyFax = '03-1234-5679',
+  companyRepresentative = '山田 太郎',
+  companyRegistrationNumber = 'T0000000000000',
   vehicleName,
   vehicleNumber,
   mileage,
@@ -75,7 +75,7 @@ export function InvoicePreview({
   deliveryDate,
   deliveryCategory,
   staffName,
-  bankInfo = '岩手銀行・岩泉支店（普）0192367',
+  bankInfo = 'サンプル銀行・本店（普）1234567',
 }: InvoicePreviewProps) {
   const isEstimate = documentType === 'estimate'
   const title = isEstimate ? '御 見 積 書' : '御 請 求 書'

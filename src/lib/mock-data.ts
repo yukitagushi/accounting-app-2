@@ -98,15 +98,15 @@ export async function convertEstimateToInvoice(estimateId: string): Promise<Invo
 
 export const MOCK_BRANCHES: Branch[] = [
   { id: 'all', name: 'トータル', code: 'ALL', created_at: '2024-01-01T00:00:00Z' },
-  { id: '00000000-0000-0000-0000-000000000001', name: '滝沢工場', code: 'TKZ', address: '〒020-0173 岩手県岩手郡滝沢市', phone: '019-684-0000', created_at: '2024-01-01T00:00:00Z' },
-  { id: '00000000-0000-0000-0000-000000000002', name: '三ツ割工場', code: 'MTW', address: '〒028-0000 岩手県', phone: '019-684-0001', created_at: '2024-01-01T00:00:00Z' },
-  { id: '00000000-0000-0000-0000-000000000003', name: '本社工場', code: 'HQ', address: '〒028-0041 岩手県久慈市長内町', phone: '0194-52-3955', created_at: '2024-01-01T00:00:00Z' },
+  { id: '00000000-0000-0000-0000-000000000001', name: 'A支店', code: 'BR-A', address: '〒100-0001 東京都千代田区千代田1-1-1', phone: '03-1234-5678', created_at: '2024-01-01T00:00:00Z' },
+  { id: '00000000-0000-0000-0000-000000000002', name: 'B支店', code: 'BR-B', address: '〒100-0002 東京都千代田区皇居外苑1', phone: '03-1234-5680', created_at: '2024-01-01T00:00:00Z' },
+  { id: '00000000-0000-0000-0000-000000000003', name: '本社', code: 'HQ', address: '〒100-0001 東京都千代田区千代田1-1-1', phone: '03-1234-5678', created_at: '2024-01-01T00:00:00Z' },
 ]
 
 export const MOCK_CURRENT_USER: Profile = {
   id: 'user-1',
   email: 'admin@autoaccount.demo',
-  display_name: '竹花 将昭',
+  display_name: '山田 太郎',
   branch_id: '00000000-0000-0000-0000-000000000001',
   role: 'admin',
   created_at: '2024-01-01T00:00:00Z',

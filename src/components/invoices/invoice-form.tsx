@@ -377,7 +377,7 @@ export function InvoiceForm({ initialData, mode, defaultValues }: InvoiceFormPro
               id="customerName"
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
-              placeholder="例: 盛岡いすゞモーター株式会社"
+              placeholder="例: 株式会社サンプル商事"
             />
           </div>
           <div className="space-y-1.5">
@@ -480,7 +480,7 @@ export function InvoiceForm({ initialData, mode, defaultValues }: InvoiceFormPro
             </div>
             <div className="space-y-1.5">
               <Label>担当者</Label>
-              <Input value={staffName} onChange={(e) => setStaffName(e.target.value)} placeholder="例: 竹花 将昭" />
+              <Input value={staffName} onChange={(e) => setStaffName(e.target.value)} placeholder="例: 山田 太郎" />
             </div>
           </div>
         )}

@@ -521,7 +521,7 @@ export function EstimateForm({ initialData, mode }: EstimateFormProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <Label htmlFor="customerName">顧客名 <span className="text-red-500">*</span></Label>
-            <Input id="customerName" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="例: 盛岡いすゞモーター株式会社" />
+            <Input id="customerName" value={customerName} onChange={(e) => setCustomerName(e.target.value)} placeholder="例: 株式会社サンプル商事" />
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="customerAddress">顧客住所</Label>
@@ -636,7 +636,7 @@ export function EstimateForm({ initialData, mode }: EstimateFormProps) {
             </div>
             <div className="space-y-1.5">
               <Label>担当者</Label>
-              <Input value={staffName} onChange={(e) => setStaffName(e.target.value)} placeholder="例: 竹花 将昭" />
+              <Input value={staffName} onChange={(e) => setStaffName(e.target.value)} placeholder="例: 山田 太郎" />
             </div>
           </div>
         )}

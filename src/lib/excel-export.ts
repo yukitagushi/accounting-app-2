@@ -2,12 +2,12 @@ import ExcelJS from 'exceljs'
 import { saveAs } from 'file-saver'
 import type { Invoice, Estimate } from '@/lib/types'
 
-const DEFAULT_COMPANY_NAME = '有限会社 竹花自工'
-const DEFAULT_COMPANY_REP = '代表取締役 竹花 将昭'
-const DEFAULT_COMPANY_ADDRESS = '〒028-5642 岩手県下閉伊郡岩泉町穴沢大宮内43-5'
-const DEFAULT_COMPANY_TEL = 'TEL 0194-25-4793  FAX 0194-32-3015'
-const DEFAULT_COMPANY_REG = '登録番号 T8400002011138'
-const DEFAULT_BANK_INFO = '岩手銀行・岩泉支店（普）0192367'
+const DEFAULT_COMPANY_NAME = 'サンプル株式会社'
+const DEFAULT_COMPANY_REP = '代表取締役 山田 太郎'
+const DEFAULT_COMPANY_ADDRESS = '〒100-0001 東京都千代田区千代田1-1-1'
+const DEFAULT_COMPANY_TEL = 'TEL 03-1234-5678  FAX 03-1234-5679'
+const DEFAULT_COMPANY_REG = '登録番号 T0000000000000'
+const DEFAULT_BANK_INFO = 'サンプル銀行・本店（普）1234567'
 
 export type CompanyInfo = {
   name?: string
