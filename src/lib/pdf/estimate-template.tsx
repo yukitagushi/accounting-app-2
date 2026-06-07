@@ -8,10 +8,13 @@ const s = StyleSheet.create({
   page: { fontFamily: 'NotoSansJP', fontSize: 8, paddingTop: 20, paddingBottom: 20, paddingHorizontal: 25, backgroundColor: '#fff', color: '#1a1a1a' },
   title: { textAlign: 'center', fontSize: 18, fontWeight: 700, letterSpacing: 6, marginBottom: 10 },
   headerRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 },
-  customerBlock: { flex: 1, maxWidth: '55%' },
+  // 長形3号 窓付き封筒の窓位置に合わせる(請求書テンプレートと同じ位置揃え):
+  //   窓: 左から22mm・幅90mm・上から13mm・高さ45mm
+  customerBlock: { marginLeft: 37, width: 244 },
   customerName: { fontSize: 12, fontWeight: 700, borderBottomWidth: 2, borderBottomColor: '#1a1a1a', paddingBottom: 2, marginBottom: 3 },
   customerDetail: { fontSize: 7, color: '#555', marginBottom: 1 },
-  companyBlock: { alignItems: 'flex-end', maxWidth: '42%' },
+  // 自社ブロックは窓の右側(110mm以降)に収めるため幅を制限
+  companyBlock: { alignItems: 'flex-end', maxWidth: 200 },
   companyName: { fontSize: 10, fontWeight: 700, marginBottom: 2 },
   companyDetail: { fontSize: 7, color: '#333', marginBottom: 1 },
   sealWrap: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-end', gap: 6 },
@@ -47,6 +50,14 @@ function fmt(val: number): string {
 }
 function fmtNum(val: number): string {
   return val.toLocaleString('en-US')
+}
+// \u9867\u5ba2\u540d\u304c\u7a93\u5e45(86mm/244pt)\u306b\u53ce\u307e\u308b\u3088\u3046\u30d5\u30a9\u30f3\u30c8\u30b5\u30a4\u30ba\u3092\u6bb5\u968e\u7684\u306b\u7e2e\u5c0f
+function fitCustomerNameSize(text: string): number {
+  const len = text.length
+  if (len <= 18) return 12
+  if (len <= 22) return 10.5
+  if (len <= 26) return 9.5
+  return 8.5
 }
 
 interface EstimatePDFProps {
@@ -104,7 +115,7 @@ export function EstimatePDF({
 
         <View style={s.headerRow}>
           <View style={s.customerBlock}>
-            <Text style={s.customerName}>{estimate.customer_name} {'\u5fa1\u4e2d'}</Text>
+            <Text style={[s.customerName, { fontSize: fitCustomerNameSize((estimate.customer_name ?? '') + ' \u5fa1\u4e2d') }]}>{estimate.customer_name} {'\u5fa1\u4e2d'}</Text>
             {estimate.customer_address ? <Text style={s.customerDetail}>{estimate.customer_address}</Text> : null}
             {estimate.customer_code ? <Text style={s.customerDetail}>{'\u9867\u5ba2\u30b3\u30fc\u30c9: ' + estimate.customer_code}</Text> : null}
           </View>
